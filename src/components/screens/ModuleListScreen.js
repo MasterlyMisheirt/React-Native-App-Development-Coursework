@@ -10,9 +10,10 @@ import useLoad from "../API/UseLoad.js";
 import useStore from "../store/useStore.js";
 import API from "../API/API.js";
 import Screen from "../layout/Screen";
-import ModuleItem from "../Entity/Modules/ModuleItem.js";
+import ModuleList from "../Entity/Modules/ModuleList.js";
 import { Button, ButtonTray } from "../UI/Button.js";
 import Icons from "../UI/Icons.js";
+import { useEffect } from "react";
 
 export const ModuleListScreen = ({ navigation }) => {
   //Initialisations -------------
@@ -21,12 +22,28 @@ export const ModuleListScreen = ({ navigation }) => {
   ]);
   const modulesEndPoint = "https://softwarehub.uk/unibase/api/modules";
   const loggedinUserKey = "loggedinUser";
+  const favouritesKey = "moduleFavourites";
 
   //State -----------------------
-  const [modules, setRecords, isLoading, loadModules] =
+  const [modules, setModules, isLoading, loadModules] =
     useLoad(modulesEndPoint);
 
-  const [loggedinUser, saveLoggedinUser] = useStore(loggedinUserKey, null);
+  const [loggedinUser] = useStore(loggedinUserKey, null);
+  const [favourites, saveFavourites] = useStore(favouritesKey, []);
+
+  const augmentModulesWithFavourites = () => {
+    const modifyModule = (module) => ({
+      ...module,
+      ModuleFavourite: favourites.includes(module.ModuleID),
+    });
+
+    const augmentedModules = modules.map(modifyModule);
+    setModules(augmentedModules);
+  };
+
+  useEffect(() => {
+    augmentModulesWithFavourites();
+  }, [isLoading]);
 
   //Handlers --------------------
   const onDelete = async (module) => {
@@ -59,6 +76,24 @@ export const ModuleListScreen = ({ navigation }) => {
     navigation.navigate("ModuleViewScreen", { module, onDelete, onModify });
 
   const goToAddScreen = () => navigation.navigate("ModuleAddScreen", { onAdd });
+
+  const handleFavourite = (module) => {
+    // Update the module state
+    const isFavourite = !module.ModuleFavourite;
+    const updateModule = (item) =>
+      item.ModuleID === module.ModuleID
+        ? { ...item, ModuleFavourite: isFavourite }
+        : item;
+    const updatedModuleList = modules.map(updateModule);
+    setModules(updatedModuleList);
+
+    // Save the new favourites
+    const updatedFavouritesList = updatedModuleList
+      .filter((item) => item.ModuleFavourite)
+      .map((item) => item.ModuleID);
+    saveFavourites(updatedFavouritesList);
+  };
+
   //View ------------------------
   return (
     <Screen>
@@ -79,7 +114,11 @@ export const ModuleListScreen = ({ navigation }) => {
             <ActivityIndicator size="large" />
           </View>
         )}
-        <ModuleItem modules={modules} onSelect={goToViewScreen} />
+        <ModuleList
+          modules={modules}
+          onSelect={goToViewScreen}
+          onFavourite={handleFavourite}
+        />
       </View>
     </Screen>
   );

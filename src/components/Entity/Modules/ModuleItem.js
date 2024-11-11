@@ -1,28 +1,29 @@
 import { StyleSheet, Text, View } from "react-native";
 import Selector from "../../UI/Selector";
+import Favourite from "../../UI/Favourite";
 
-const ModuleItem = ({ modules, onSelect }) => {
+const ModuleItem = ({ module, onSelect, onFavourite }) => {
   // Initialisations ---------------------
   // State -------------------------------
   // Handlers ----------------------------
   // View --------------------------------
   return (
     <View>
-      {modules.map((module) => {
-        return (
-          <Selector
-            onPress={() => onSelect(module)}
-            pressStyle={styles.pressedItem}
-            key={module.ModuleID}
-          >
-            <View style={styles.item}>
-              <Text style={styles.text}>
-                {module.ModuleCode} {module.ModuleName}
-              </Text>
-            </View>
-          </Selector>
-        );
-      })}
+      <Selector
+        onPress={() => onSelect(module)}
+        pressStyle={styles.pressedItem}
+        key={module.ModuleID}
+      >
+        <View style={styles.item}>
+          <Favourite
+            isFavourite={module.ModuleFavourite}
+            onSelect={() => onFavourite(module)}
+          />
+          <Text style={styles.text}>
+            {module.ModuleCode} {module.ModuleName}
+          </Text>
+        </View>
+      </Selector>
     </View>
   );
 };
@@ -32,9 +33,11 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderTopWidth: 1,
     borderColor: "lightgray",
+    flexDirection: "row",
   },
   text: {
     fontSize: 16,
+    paddingLeft: 10,
   },
   pressedItem: {
     backgroundColor: "azure",
