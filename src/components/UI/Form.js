@@ -45,14 +45,7 @@ const InputText = ({ label, value, onChange }) => {
   );
 };
 
-const InputSelect = ({
-  label,
-  prompt,
-  options,
-  value,
-  onChange,
-  isLoading = false,
-}) => {
+const InputSelect = ({ label, prompt, options, value, onChange }) => {
   // Initialisations ---------------------
   // State -------------------------------
   // Handlers ----------------------------
@@ -60,31 +53,21 @@ const InputSelect = ({
   return (
     <View style={styles.item}>
       <Text style={styles.itemLabel}>{label}</Text>
-      {isLoading ? (
-        <View style={styles.itemLoading}>
-          <Text style={styles.itemLoadingText}>Loading prompt options ...</Text>
-        </View>
-      ) : (
-        <Picker
-          mode="dropdown"
-          selectedValue={value}
-          onValueChange={onChange}
-          style={styles.itemPickerStyle}
-        >
-          <Picker.Item
-            value={null}
-            label={prompt}
-            style={styles.itemPickerPromptStyle}
-          />
-          {options.map((option, index) => (
-            <Picker.Item
-              key={index}
-              value={option.value}
-              label={option.label}
-            />
-          ))}
-        </Picker>
-      )}
+      <Picker
+        mode="dropdown"
+        selectedValue={value}
+        onValueChange={onChange}
+        style={styles.itemPickerStyle}
+      >
+        <Picker.Item
+          value={null}
+          label={prompt}
+          style={styles.itemPickerPromptStyle}
+        />
+        {options.map((option, index) => (
+          <Picker.Item key={index} value={option.value} label={option.label} />
+        ))}
+      </Picker>
     </View>
   );
 };

@@ -6,11 +6,12 @@ const ModuleItem = ({ module, onSelect, onFavourite }) => {
   // Initialisations ---------------------
   // State -------------------------------
   // Handlers ----------------------------
+  handleSelect = () => onSelect(module);
   // View --------------------------------
   return (
     <View>
       <Selector
-        onPress={() => onSelect(module)}
+        onPress={handleSelect}
         pressStyle={styles.pressedItem}
         key={module.ModuleID}
       >
