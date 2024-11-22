@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  ActivityIndicator,
-  LogBox,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { LogBox, StyleSheet, Text, View } from "react-native";
 import initialModules from "../../data/modules.js";
 import useStore from "../store/useStore.js";
 import Screen from "../layout/Screen";

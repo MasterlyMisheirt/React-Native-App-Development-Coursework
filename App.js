@@ -5,6 +5,7 @@ import ModuleListScreen from "./src/components/screens/ModuleListScreen";
 import ModuleAddScreen from "./src/components/screens/ModuleAddScreen";
 import ModuleModifyScreen from "./src/components/screens/ModuleModifyScreen";
 import ModuleViewScreen from "./src/components/screens/ModuleViewScreen";
+import UserListScreen from "./src/components/screens/UserListScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,13 +17,19 @@ export const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="ModuleListScreen"
+        initialRouteName="UserListScreen"
         screenOptions={{
           headerStyle: { backgroundColor: "black" },
           headerTintColor: "white",
           statusBarColor: "black",
         }}
       >
+        <Stack.Screen
+          name="UserListScreen"
+          component={UserListScreen}
+          options={{ title: "List users" }}
+        />
+
         <Stack.Screen
           name="ModuleListScreen"
           component={ModuleListScreen}

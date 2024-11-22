@@ -16,8 +16,6 @@ const defaultModule = {
 
 const ModuleForm = ({ ogModule, onSubmit, onCancel }) => {
   // Initialisations ---------------------
-  defaultModule.ModuleID = Math.floor(100000 + Math.random() * 900000);
-
   const levels = [
     { value: 3, label: "3 (Foundation)" },
     { value: 4, label: "4 (First Year)" },
