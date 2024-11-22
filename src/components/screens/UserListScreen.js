@@ -51,9 +51,6 @@ export const UserListScreen = ({ navigation }) => {
   //View ------------------------
   return (
     <Screen>
-      {loggedinUser && (
-        <Text style={styles.welcome}>Welcome {loggedinUser.UserFirstname}</Text>
-      )}
       <View style={styles.container}>
         <ButtonTray>
           <Button
@@ -62,11 +59,7 @@ export const UserListScreen = ({ navigation }) => {
             onClick={goToAddScreen}
           />
         </ButtonTray>
-        <UserList
-          users={users}
-          onSelect={goToViewScreen}
-          onFavourite={handleFavourite}
-        />
+        <UserList users={users} onSelect={goToViewScreen} />
       </View>
     </Screen>
   );

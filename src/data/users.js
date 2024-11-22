@@ -80,3 +80,5 @@ const users = [
     UserYear: "2022-23",
   },
 ];
+
+export default users;
