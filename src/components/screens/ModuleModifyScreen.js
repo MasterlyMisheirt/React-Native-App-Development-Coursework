@@ -1,4 +1,3 @@
-import { StyleSheet, Text } from "react-native";
 import Screen from "../layout/Screen";
 import ModuleForm from "../Entity/Modules/ModuleForm";
 
@@ -19,7 +18,5 @@ export const ModuleModifyScreen = ({ navigation, route }) => {
     </Screen>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default ModuleModifyScreen;
