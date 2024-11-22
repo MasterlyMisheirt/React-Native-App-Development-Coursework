@@ -15,7 +15,7 @@ const users = [
     UserLastname: "Neve",
     UserEmail: "p.neve@kingston.ac.uk",
     UserImageURL:
-      "https://canvas.kingston.ac.uk/courses/31870/files/5510496/preview",
+      "https://cdn.kingston.ac.uk/includes/img/cms/site-images/resized/ebc8676-kingston-university-2046fd9-mrpaulneve.png",
     UserType: "Staff",
     UserYear: null,
   },
