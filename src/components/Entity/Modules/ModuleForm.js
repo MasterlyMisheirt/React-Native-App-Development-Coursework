@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet } from "react-native";
 import useLoad from "../../API/UseLoad.js";
 import Icons from "../../UI/Icons.js";
 import Form from "../../UI/Form.js";
 
 const defaultModule = {
-  ModuleID: null, //Math.floor(100000 + Math.random() * 900000),
+  ModuleID: null,
   ModuleName: null,
   ModuleCode: null,
   ModuleLevel: null,

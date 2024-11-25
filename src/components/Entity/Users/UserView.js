@@ -22,9 +22,7 @@ const UserView = ({ user, onDelete, onModify }) => {
         style={styles.image}
       />
       <View style={styles.infoTray}>
-        <Text style={styles.boldText}>
-          ({1 === user.UserUsertypeID ? "Staff" : "Student"})
-        </Text>
+        <Text style={styles.boldText}>({user.UserUsertypeName})</Text>
         <Text style={styles.boldText}>
           {user.UserFirstname} {user.UserLastname}
         </Text>
