@@ -11,7 +11,7 @@ const ModuleList = ({ modules, onSelect, onFavourite }) => {
       {modules.map((module) => {
         return (
           <ModuleItem
-            key={module.ID}
+            key={module.ModuleID}
             module={module}
             onSelect={onSelect}
             onFavourite={onFavourite}
