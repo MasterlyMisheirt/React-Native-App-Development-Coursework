@@ -10,11 +10,20 @@ const UserForm = ({ ogUser, onSubmit, onCancel }) => {
     UserFirstname: null,
     UserLastname: null,
     UserEmail: null,
-    UserType: null,
-    UserYear: null,
+    UserLevel: null,
+    UserUsertypeID: null,
+    UserYearID: null,
     UserImageURL:
       "https://generated.photos/face/neutral-white-middle-aged-male-with-short-gray-hair-and-blue-eyes--5e6849b06d3b380006e3c5cb",
   };
+
+  const levels = [
+    { value: 3, label: "3 (Foundation)" },
+    { value: 4, label: "4 (First Year)" },
+    { value: 5, label: "5 (Second Year)" },
+    { value: 6, label: "6 (Final Year)" },
+    { value: 7, label: "7 (Masters)" },
+  ];
 
   // Initialisations -----------------------
 

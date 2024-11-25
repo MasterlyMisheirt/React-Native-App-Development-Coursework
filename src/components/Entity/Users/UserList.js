@@ -9,7 +9,6 @@ const UserList = ({ users, onSelect }) => {
   return (
     <ScrollView style={styles.container}>
       {users.map((user) => {
-        console.log(user.UserID);
         return <UserItem key={user.UserID} user={user} onSelect={onSelect} />;
       })}
     </ScrollView>

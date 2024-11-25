@@ -9,7 +9,6 @@ const ModuleList = ({ modules, onSelect, onFavourite }) => {
   return (
     <ScrollView style={styles.container}>
       {modules.map((module) => {
-        console.log(module.ModuleID);
         return (
           <ModuleItem
             key={module.ModuleID}

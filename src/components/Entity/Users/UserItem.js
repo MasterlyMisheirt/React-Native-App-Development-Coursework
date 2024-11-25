@@ -16,7 +16,8 @@ const UserItem = ({ user, onSelect }) => {
       >
         <View style={styles.item}>
           <Text style={styles.text}>
-            {user.UserFirstname} {user.UserLastname} ({user.UserType})
+            {user.UserFirstname} {user.UserLastname} (
+            {1 === user.UserUsertypeID ? "Staff" : "Student"})
           </Text>
         </View>
       </Selector>

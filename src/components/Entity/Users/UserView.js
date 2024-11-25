@@ -22,10 +22,13 @@ const UserView = ({ user, onDelete, onModify }) => {
         style={styles.image}
       />
       <View style={styles.infoTray}>
-        <Text style={styles.boldText}>({user.UserType})</Text>
+        <Text style={styles.boldText}>
+          ({1 === user.UserUsertypeID ? "Staff" : "Student"})
+        </Text>
         <Text style={styles.boldText}>
           {user.UserFirstname} {user.UserLastname}
         </Text>
+        <Text style={styles.text}>Level {user.UserLevel}</Text>
         <Text style={styles.text}>Email: {user.UserEmail}</Text>
         {user.UserYear && (
           <Text style={styles.text}>Year: {user.UserYear}</Text>

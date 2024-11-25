@@ -7,18 +7,15 @@ const ModuleItem = ({ module, onSelect, onFavourite }) => {
   // State -------------------------------
   // Handlers ----------------------------
   handleSelect = () => onSelect(module);
+  handleFavourites = () => onFavourite(module);
   // View --------------------------------
   return (
     <View>
-      <Selector
-        onPress={handleSelect}
-        pressStyle={styles.pressedItem}
-        key={module.ModuleID}
-      >
+      <Selector onPress={handleSelect} pressStyle={styles.pressedItem}>
         <View style={styles.item}>
           <Favourite
             isFavourite={module.ModuleFavourite}
-            onSelect={() => onFavourite(module)}
+            onSelect={handleFavourites}
           />
           <Text style={styles.text}>
             {module.ModuleCode} {module.ModuleName}
