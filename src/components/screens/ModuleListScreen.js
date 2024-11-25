@@ -17,7 +17,8 @@ export const ModuleListScreen = ({ navigation }) => {
   const favouritesKey = "moduleFavourites";
 
   //State -----------------------
-  const [modules, setModules] = useState(initialModules);
+  const [modules, setModules, isLoading, loadModules] =
+    useLoad(modulesEndPoint);
 
   const [loggedinUser] = useStore(loggedinUserKey, null);
   const [favourites, saveFavourites] = useStore(favouritesKey, []);
@@ -34,7 +35,7 @@ export const ModuleListScreen = ({ navigation }) => {
 
   useEffect(() => {
     augmentModulesWithFavourites();
-  }, []);
+  }, [isLoading]);
 
   //Handlers --------------------
   const handleDelete = (module) =>
@@ -100,6 +101,12 @@ export const ModuleListScreen = ({ navigation }) => {
             onClick={goToAddScreen}
           />
         </ButtonTray>
+        {isLoading && (
+          <View style={styles.loading}>
+            <Text>Retrieving records from {modulesEndPoint} ...</Text>
+            <ActivityIndicator size="large" />
+          </View>
+        )}
         <ModuleList
           modules={modules}
           onSelect={goToViewScreen}
