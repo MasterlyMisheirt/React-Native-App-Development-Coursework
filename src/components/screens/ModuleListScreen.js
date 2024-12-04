@@ -68,7 +68,7 @@ export const ModuleListScreen = ({ navigation }) => {
     const result = await API.put(putEndPoint, module);
     if (result.isSuccess) {
       loadModules(modulesEndPoint);
-      navigation.navigate("ModuleViewScreen", { module, onDelete, onModify });
+      navigation.navigate("ModuleListScreen", { module, onDelete, onModify });
     } else Alert.alert(result.message);
   };
 

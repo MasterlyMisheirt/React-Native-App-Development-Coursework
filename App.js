@@ -85,6 +85,7 @@ const ModuleNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer>
+      UserNavigator();
       <Drawer.Navigator>
         <Drawer.Screen name="User Crudler" component={UserNavigator} />
         <Drawer.Screen name="Module Crudler" component={ModuleNavigator} />

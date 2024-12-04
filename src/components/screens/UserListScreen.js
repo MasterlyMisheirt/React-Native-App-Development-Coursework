@@ -48,7 +48,7 @@ export const UserListScreen = ({ navigation }) => {
     const result = await API.put(putEndPoint, user);
     if (result.isSuccess) {
       loadUsers(usersEndPoint);
-      navigation.navigate("UserViewScreen", { user, onDelete, onModify });
+      navigation.navigate("UserListScreen", { user, onDelete, onModify });
     } else Alert.alert(result.message);
   };
 

@@ -28,8 +28,8 @@ const UserView = ({ user, onDelete, onModify }) => {
         </Text>
         <Text style={styles.text}>Level {user.UserLevel}</Text>
         <Text style={styles.text}>Email: {user.UserEmail}</Text>
-        {user.UserYear && (
-          <Text style={styles.text}>Year: {user.UserYear}</Text>
+        {user.UserYearName && (
+          <Text style={styles.text}>Year: {user.UserYearName}</Text>
         )}
       </View>
       <ButtonTray>

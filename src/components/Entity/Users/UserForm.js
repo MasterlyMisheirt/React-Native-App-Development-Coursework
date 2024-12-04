@@ -13,9 +13,11 @@ const UserForm = ({ ogUser, onSubmit, onCancel }) => {
     UserEmail: null,
     UserLevel: null,
     UserUsertypeID: null,
+    UserUsertypeName: null,
+    UserRegistered: 0,
     UserYearID: null,
     UserImageURL:
-      "https://generated.photos/face/neutral-white-middle-aged-male-with-short-gray-hair-and-blue-eyes--5e6849b06d3b380006e3c5cb",
+      "https://images.generated.photos/WIwNwGAxeJRXK01PcPpxHFnsAsWmKwbFJO1X0d05ZhQ/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/Njk5MDY5LmpwZw.jpg",
   };
 
   const levels = [
@@ -47,7 +49,7 @@ const UserForm = ({ ogUser, onSubmit, onCancel }) => {
 
   const cohorts = years.map((year) => ({
     value: year.YearID,
-    label: year.YearName,
+    label: `${year.YearName}`,
   }));
 
   const actors = types.map((type) => ({
@@ -71,7 +73,7 @@ const UserForm = ({ ogUser, onSubmit, onCancel }) => {
       <Form.InputText
         label="Last Name"
         value={user.UserLastname}
-        onChange={(value) => handleChange("UserFirstname", value)}
+        onChange={(value) => handleChange("UserLastname", value)}
       />
 
       <Form.InputText
