@@ -6,14 +6,12 @@ import {
   Text,
   View,
 } from "react-native";
-import useLoad from "../API/UseLoad.js";
-import useStore from "../store/useStore.js";
-import API from "../API/API.js";
-import Screen from "../layout/Screen";
-import UserList from "../Entity/Users/UserList.js";
-import { Button, ButtonTray } from "../UI/Button.js";
-import Icons from "../UI/Icons.js";
-import { useEffect } from "react";
+import useLoad from "../../API/UseLoad.js";
+import API from "../../API/API.js";
+import Screen from "../../layout/Screen.js";
+import UserList from "../../Entity/Users/UserList.js";
+import { Button, ButtonTray } from "../../UI/Button.js";
+import Icons from "../../UI/Icons.js";
 
 export const UserListScreen = ({ navigation }) => {
   //Initialisations -------------
@@ -48,7 +46,7 @@ export const UserListScreen = ({ navigation }) => {
     const result = await API.put(putEndPoint, user);
     if (result.isSuccess) {
       loadUsers(usersEndPoint);
-      navigation.navigate("UserListScreen", { user, onDelete, onModify });
+      navigation.navigate("UserViewScreen", { user, onDelete, onModify });
     } else Alert.alert(result.message);
   };
 

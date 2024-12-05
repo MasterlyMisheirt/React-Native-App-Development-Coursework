@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import Screen from "../layout/Screen";
-import UserForm from "../Entity/Users/UserForm";
+import Screen from "../../layout/Screen";
+import UserForm from "../../Entity/Users/UserForm";
 
 export const UserAddScreen = ({ navigation, route }) => {
   //Initialisations -------------

@@ -1,5 +1,5 @@
-import Screen from "../layout/Screen";
-import UserView from "../Entity/Users/UserView";
+import Screen from "../../layout/Screen";
+import UserView from "../../Entity/Users/UserView";
 
 export const UserViewScreen = ({ navigation, route }) => {
   //Initialisations -------------

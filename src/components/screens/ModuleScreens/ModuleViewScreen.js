@@ -1,5 +1,5 @@
-import Screen from "../layout/Screen";
-import ModuleView from "../Entity/Modules/ModuleView";
+import Screen from "../../layout/Screen";
+import ModuleView from "../../Entity/Modules/ModuleView";
 
 export const ModuleViewScreen = ({ navigation, route }) => {
   //Initialisations -------------

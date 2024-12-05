@@ -1,5 +1,5 @@
-import Screen from "../layout/Screen";
-import ModuleForm from "../Entity/Modules/ModuleForm";
+import Screen from "../../layout/Screen";
+import ModuleForm from "../../Entity/Modules/ModuleForm";
 
 export const ModuleModifyScreen = ({ navigation, route }) => {
   //Initialisations -------------

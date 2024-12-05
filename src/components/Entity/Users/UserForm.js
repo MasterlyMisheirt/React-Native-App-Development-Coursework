@@ -92,7 +92,7 @@ const UserForm = ({ ogUser, onSubmit, onCancel }) => {
 
       <Form.InputSelect
         label="User Type"
-        prompt="Select staff or student..."
+        prompt="Are you a Staff or Student?"
         options={actors}
         value={user.UserUsertypeID}
         onChange={(value) => handleChange("UserUsertypeID", value)}

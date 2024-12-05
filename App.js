@@ -2,14 +2,14 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
-import UserListScreen from "./src/components/screens/UserListScreen";
-import UserAddScreen from "./src/components/screens/UserAddScreen";
-import UserModifyScreen from "./src/components/screens/UserModifyScreen";
-import UserViewScreen from "./src/components/screens/UserViewScreen";
-import ModuleListScreen from "./src/components/screens/ModuleListScreen";
-import ModuleAddScreen from "./src/components/screens/ModuleAddScreen";
-import ModuleModifyScreen from "./src/components/screens/ModuleModifyScreen";
-import ModuleViewScreen from "./src/components/screens/ModuleViewScreen";
+import UserListScreen from "./src/components/screens/UserScreens/UserListScreen";
+import UserAddScreen from "./src/components/screens/UserScreens/UserAddScreen";
+import UserModifyScreen from "./src/components/screens/UserScreens/UserModifyScreen";
+import UserViewScreen from "./src/components/screens/UserScreens/UserViewScreen";
+import ModuleListScreen from "./src/components/screens/ModuleScreens/ModuleListScreen";
+import ModuleAddScreen from "./src/components/screens/ModuleScreens/ModuleAddScreen";
+import ModuleModifyScreen from "./src/components/screens/ModuleScreens/ModuleModifyScreen";
+import ModuleViewScreen from "./src/components/screens/ModuleScreens/ModuleViewScreen";
 
 const Stack = createStackNavigator();
 
@@ -80,7 +80,7 @@ const UserNavigation = () => (
 const Drawer = createDrawerNavigator();
 
 const DrawerScreen = () => (
-  <Drawer.Navigator initialRouteName="ModuleListScreen">
+  <Drawer.Navigator>
     <Drawer.Screen name="Module Crudler" component={ModuleNavigation} />
     <Drawer.Screen name="User Crudler" component={UserNavigation} />
   </Drawer.Navigator>

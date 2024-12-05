@@ -6,13 +6,13 @@ import {
   Text,
   View,
 } from "react-native";
-import useLoad from "../API/UseLoad.js";
-import useStore from "../store/useStore.js";
-import API from "../API/API.js";
-import Screen from "../layout/Screen";
-import ModuleList from "../Entity/Modules/ModuleList.js";
-import { Button, ButtonTray } from "../UI/Button.js";
-import Icons from "../UI/Icons.js";
+import useLoad from "../../API/UseLoad.js";
+import useStore from "../../store/useStore.js";
+import API from "../../API/API.js";
+import Screen from "../../layout/Screen.js";
+import ModuleList from "../../Entity/Modules/ModuleList.js";
+import { Button, ButtonTray } from "../../UI/Button.js";
+import Icons from "../../UI/Icons.js";
 import { useEffect } from "react";
 
 export const ModuleListScreen = ({ navigation }) => {
@@ -68,7 +68,7 @@ export const ModuleListScreen = ({ navigation }) => {
     const result = await API.put(putEndPoint, module);
     if (result.isSuccess) {
       loadModules(modulesEndPoint);
-      navigation.navigate("ModuleListScreen", { module, onDelete, onModify });
+      navigation.navigate("ModuleViewScreen", { module, onDelete, onModify });
     } else Alert.alert(result.message);
   };
 
